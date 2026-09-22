@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuario Místico | Lecturas de Tarot y Trabajos Espirituales</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mystic: {
+                            900: '#0b0612',
+                            800: '#150a21',
+                            700: '#231138',
+                            600: '#381759',
+                        },
+                        gold: {
+                            light: '#fbf0b9',
+                            DEFAULT: '#d4af37',
+                            dark: '#aa820a',
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0b0612;
+            color: #e2d9ec;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff3a7 0%, #d4af37 50%, #aa820a 100%);
+            -webkit-background-clip: text;
+            background-clip: text; /* Corrección de compatibilidad */
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gold-border {
+            border-image: linear-gradient(to bottom, #d4af37, #4a3b10) 1;
+        }
+        
+        .mystic-card {
+            background: linear-gradient(180deg, rgba(35, 17, 56, 0.6) 0%, rgba(15, 7, 26, 0.8) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .mystic-card:hover {
+            border-color: rgba(212, 175, 55, 0.7);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(112, 26, 117, 0.4);
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+        
+        .pulse-whatsapp {
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-gold selection:text-black">
+
+    <!-- Header / Nav -->
+    <nav class="fixed w-full z-50 bg-mystic-900/90 backdrop-blur-md border-b border-gold/20 py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <i class="fa-solid font-cinzel fa-moon text-gold text-2xl"></i>
+                <span class="font-cinzel text-xl md:text-2xl font-bold tracking-widest gold-gradient-text">SANTUARIO MÍSTICO</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="#inicio" class="hover:text-gold transition">Inicio</a>
+                <a href="#servicios" class="hover:text-gold transition">Servicios</a>
+                <a href="#nosotros" class="hover:text-gold transition">Nosotros</a>
+                <a href="#testimonios" class="hover:text-gold transition">Testimonios</a>
+                <a href="#contacto" class="hover:text-gold transition">Contacto</a>
+            </div>
+
+            <a href="https://wa.me/3143453355?text=Hola,%20quisiera%20consultar%20sobre%20sus%20servicios%20místicos" target="_blank" rel="noopener noreferrer" 
+               class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 text-white font-semibold py-2 px-5 rounded-full shadow-lg transition transform hover:scale-105">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Consulta Privada</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gold text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-mystic-800 border-b border-gold/20 px-6 py-4 mt-4 space-y-4 font-medium">
+            <a href="#inicio" class="block hover:text-gold transition">Inicio</a>
+            <a href="#servicios" class="block hover:text-gold transition">Servicios</a>
+            <a href="#nosotros" class="block hover:text-gold transition">Nosotros</a>
+            <a href="#testimonios" class="block hover:text-gold transition">Testimonios</a>
+            <a href="#contacto" class="block hover:text-gold transition">Contacto</a>
+            <a href="https://wa.me/3143453355?text=Hola,%20quisiera%20consultar%20sobre%20sus%20servicios%20místicos" target="_blank" rel="noopener noreferrer" 
+               class="w-full flex items-center justify-center gap-2 bg-green-600 text-white font-semibold py-2 px-4 rounded-full">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Consulta por WhatsApp</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden flex items-center justify-center">
+        <!-- Background Overlay Effects -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-mystic-700/40 via-mystic-900/80 to-mystic-900 pointer-events-none"></div>
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-block mb-4 p-2 px-4 rounded-full border border-gold/40 bg-mystic-800/50 backdrop-blur-sm">
+                <span class="text-xs md:text-sm font-cinzel tracking-widest text-gold uppercase"><i class="fa-solid fa-star mr-2"></i> Alta Magia & Guía Espiritual <i class="fa-solid fa-star ml-2"></i></span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-cinzel font-bold mb-6 leading-tight">
+                Desvela el Destino y Restaura el <span class="gold-gradient-text">Equilibrio en tu Vida</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                Consultas confidenciales de Tarot, Amarres de Amor, Limpiezas Energéticas y Endulzamientos. Recobra el amor, la prosperidad y la paz espiritual con la ayuda del mundo místico.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="https://wa.me/3143453355?text=Hola,%20deseo%20una%20consulta%20espiritual%20personalizada" target="_blank" rel="noopener noreferrer" 
+                   class="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 text-white text-lg font-semibold py-4 px-8 rounded-full shadow-xl transition transform hover:scale-105 pulse-whatsapp">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Consultar Ahora por WhatsApp</span>
+                </a>
+                
+                <a href="#servicios" class="w-full sm:w-auto border border-gold/50 hover:border-gold bg-mystic-800/40 text-gold hover:text-white text-lg font-medium py-4 px-8 rounded-full transition backdrop-blur-sm">
+                    Ver Servicios
+                </a>
+            </div>
+
+            <!-- Guarantee Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-10 border-t border-gold/10 text-xs md:text-sm text-gray-400">
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-user-shield text-gold"></i>
+                    <span>100% Confidencial</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-clock text-gold"></i>
+                    <span>Atención 24/7</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-gold"></i>
+                    <span>Resultados Efectivos</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-globe text-gold"></i>
+                    <span>Trabajos a Distancia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 px-6 bg-mystic-800/40 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-cinzel font-bold text-white mb-4">Trabajos y <span class="gold-gradient-text">Servicios Místicos</span></h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-4 rounded-full"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Soluciones espirituales personalizadas según tus necesidades. Todo trabajo se realiza con discreción absoluta y energía pura.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="mystic-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center text-gold text-3xl mb-6 border border-gold/30">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-2xl font-cinzel font-bold text-gold mb-3">Lectura de Tarot & Oráculos</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Descubre lo que el futuro tiene preparado para ti en el amor, salud y dinero. Respuestas claras y precisas para tomar las mejores decisiones.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/3143453355?text=Hola,%20quiero%20una%20lectura%20de%20Tarot" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-2 w-full py-3 border border-gold/40 hover:border-gold text-gold hover:bg-gold hover:text-mystic-900 font-semibold rounded-lg transition">
+                        <i class="fa-brands fa-whatsapp"></i> Agendar Lectura
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="mystic-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center text-gold text-3xl mb-6 border border-gold/30">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="text-2xl font-cinzel font-bold text-gold mb-3">Amarres & Retorno de Pareja</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            ¿Sientes que el amor se aleja? Trabajo de unión de parejas para recuperar la pasión, eliminar a terceros y afianzar la fidelidad.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/3143453355?text=Hola,%20necesito%20información%20sobre%20Amarres%20de%20Amor" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-2 w-full py-3 border border-gold/40 hover:border-gold text-gold hover:bg-gold hover:text-mystic-900 font-semibold rounded-lg transition">
+                        <i class="fa-brands fa-whatsapp"></i> Consultar Caso
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="mystic-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center text-gold text-3xl mb-6 border border-gold/30">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                        <h3 class="text-2xl font-cinzel font-bold text-gold mb-3">Limpias & Despojos Energeticos</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Elimina bloqueos, envidias, mal de ojo y brujerías que impiden tu avance personal o financiero. Restaura la paz en tu hogar o negocio.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/3143453355?text=Hola,%20me%20interesa%20una%20Limpiezas%20y%20Despojo" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-2 w-full py-3 border border-gold/40 hover:border-gold text-gold hover:bg-gold hover:text-mystic-900 font-semibold rounded-lg transition">
+                        <i class="fa-brands fa-whatsapp"></i> Solicitar Limpia
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="mystic-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center text-gold text-3xl mb-6 border border-gold/30">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <h3 class="text-2xl font-cinzel font-bold text-gold mb-3">Abrecaminos & Prosperidad</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Atrae el éxito financiero, la suerte en los negocios y destraba oportunidades laborales stancadas mediante alta magia blanca.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/3143453355?text=Hola,%20quiero%20atraer%20Prosperidad%20y%20Abrecaminos" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-2 w-full py-3 border border-gold/40 hover:border-gold text-gold hover:bg-gold hover:text-mystic-900 font-semibold rounded-lg transition">
+                        <i class="fa-brands fa-whatsapp"></i> Activar Suerte
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="mystic-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center text-gold text-3xl mb-6 border border-gold/30">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-2xl font-cinzel font-bold text-gold mb-3">Protecciones & Amuletos</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Protege a tus seres queridos y tu campo áurico de ataques espirituales, espíritus chocarreros y vibraciones negativas.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/3143453355?text=Hola,%20necesito%20una%20Protección%20Espiritual" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-2 w-full py-3 border border-gold/40 hover:border-gold text-gold hover:bg-gold hover:text-mystic-900 font-semibold rounded-lg transition">
+                        <i class="fa-brands fa-whatsapp"></i> Pedir Protección
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="mystic-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center text-gold text-3xl mb-6 border border-gold/30">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <h3 class="text-2xl font-cinzel font-bold text-gold mb-3">Endulzamientos & Dominación</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Suaviza el carácter de esa persona especial, elimina orgullos, desacuerdos y haz que regrese la armonía a tu relación.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/3143453355?text=Hola,%20deseo%20información%20sobre%20un%20Endulzamiento" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-2 w-full py-3 border border-gold/40 hover:border-gold text-gold hover:bg-gold hover:text-mystic-900 font-semibold rounded-lg transition">
+                        <i class="fa-brands fa-whatsapp"></i> Consultar Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Why Us Section -->
+    <section id="nosotros" class="py-20 px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="w-full h-96 rounded-2xl bg-gradient-to-tr from-purple-900/40 to-mystic-700/60 border border-gold/30 flex items-center justify-center relative overflow-hidden p-8">
+                    <i class="fa-solid fa-dharmachakra text-9xl text-gold/20 animate-spin-slow"></i>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-mystic-900/70 backdrop-blur-xs">
+                        <i class="fa-solid fa-hat-wizard text-5xl text-gold mb-4"></i>
+                        <h3 class="text-2xl font-cinzel font-bold text-white">Más de 15 Años Guiando Almas</h3>
+                        <p class="text-gray-300 text-sm mt-2">Experiencia ancestral combinada con sabiduría esotérica para ayudarte a superar cualquier obstáculo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-white mb-6">
+                    ¿Por qué confiar en <span class="gold-gradient-text">Nuestra Guía Espiritual?</span>
+                </h2>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Entendemos que atraviesas momentos difíciles en el amor, la salud o las finanzas. Nuestro compromiso es brindarte un trabajo transparente, ético y efectivo.
+                </p>
+
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-gold text-xl mt-1"></i>
+                        <span class="text-gray-300"><strong class="text-white">Confidencialidad Garantizada:</strong> Tu información y situación personal nunca serán compartidas.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-gold text-xl mt-1"></i>
+                        <span class="text-gray-300"><strong class="text-white">Diagnóstico Sincero:</strong> Te decimos la verdad de lo que vemos en el oráculo antes de iniciar cualquier trabajo.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-gold text-xl mt-1"></i>
+                        <span class="text-gray-300"><strong class="text-white">Acompañamiento Continuo:</strong> Te guiamos paso a paso durante todo el proceso hasta ver resultados.</span>
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/3143453355?text=Hola,%20quisiera%20hacer%20una%20consulta%20privada" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-3 bg-gold hover:bg-gold-light text-mystic-900 font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Hablar con un Maestro</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="py-20 px-6 bg-mystic-800/40 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-cinzel font-bold text-white mb-4">Testimonios <span class="gold-gradient-text">Reales</span></h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-4 rounded-full"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Personas que han recuperado la tranquilidad y la felicidad en sus vidas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="mystic-card p-6 rounded-xl relative">
+                    <div class="flex text-gold text-sm mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic mb-6">
+                        "Había intentado todo para recuperar a mi pareja y nada funcionaba. Después de la consulta y el trabajo de endulzamiento, volvió cambiado y cariñoso en menos de dos semanas. Totalmente agradecida."
+                    </p>
+                    <div class="border-t border-gold/10 pt-4">
+                        <span class="font-cinzel font-bold text-gold block">María G.</span>
+                        <span class="text-xs text-gray-500">Consulta de Amor</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="mystic-card p-6 rounded-xl relative">
+                    <div class="flex text-gold text-sm mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic mb-6">
+                        "Sentía una pesadez constante en mi negocio y las ventas cayeron. Hicimos una limpia energética y abrecaminos. La energía del lugar cambió por completo y los clientes regresaron."
+                    </p>
+                    <div class="border-t border-gold/10 pt-4">
+                        <span class="font-cinzel font-bold text-gold block">Carlos R.</span>
+                        <span class="text-xs text-gray-500">Limpia & Prosperidad</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="mystic-card p-6 rounded-xl relative">
+                    <div class="flex text-gold text-sm mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic mb-6">
+                        "La lectura de tarot fue sumamente acertada. Me dijo cosas que nadie más sabía sobre mi situación actual. Me dio la claridad que necesitaba para tomar la decisión correcta."
+                    </p>
+                    <div class="border-t border-gold/10 pt-4">
+                        <span class="font-cinzel font-bold text-gold block">Patricia M.</span>
+                        <span class="text-xs text-gray-500">Lectura de Tarot</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section id="contacto" class="py-20 px-6 relative text-center">
+        <div class="max-w-4xl mx-auto mystic-card p-10 md:p-16 rounded-3xl border border-gold/40 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <i class="fa-solid fa-crystal-ball text-6xl text-gold mb-6"></i>
+            
+            <h2 class="text-3xl md:text-5xl font-cinzel font-bold text-white mb-6">
+                ¿Listo para transformar tu <span class="gold-gradient-text">Destino?</span>
+            </h2>
+            
+            <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                No dejes que los problemas consuman tu paz. Escríbenos ahora mismo por WhatsApp para una evaluación confidencial y directa.
+            </p>
+
+            <a href="https://wa.me/3143453355?text=Hola,%20necesito%20una%20consulta%20espiritual%20urgente" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 text-white text-xl font-bold py-5 px-10 rounded-full shadow-2xl transition transform hover:scale-105 pulse-whatsapp">
+                <i class="fa-brands fa-whatsapp text-3xl"></i>
+                <span>Escribir por WhatsApp Ahora</span>
+            </a>
+            
+            <p class="text-xs text-gray-400 mt-6">Atención personal e inmediata • 100% discreto</p>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/3143453355?text=Hola,%20quisiera%20recibir%20información%20y%20una%20consulta" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110 pulse-whatsapp"
+       aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-mystic-900 border-t border-gold/20 py-8 px-6 text-center text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-moon text-gold"></i>
+                <span class="font-cinzel text-white font-bold">SANTUARIO MÍSTICO</span>
+            </div>
+            
+            <p class="text-xs text-gray-500">
+                © 2026 Santuario Místico. Todos los derechos reservados. Servicios para mayores de 18 años.
+            </p>
+
+            <div class="flex space-x-4 text-gold">
+                <a href="https://wa.me/3143453355" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }); 
